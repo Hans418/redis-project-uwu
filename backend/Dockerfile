@@ -10,8 +10,6 @@ RUN pnpm install
 
 COPY . .
 
-RUN pnpm dlx prisma generate
-
 EXPOSE 3000
 
-CMD ["sh", "-c", "pnpm dlx prisma db push --accept-data-loss && pnpm prisma db seed && pnpm start"]
+CMD ["sh", "-c", "pnpm dlx prisma generate && pnpm dlx prisma db push --accept-data-loss && pnpm prisma db seed && pnpm start"]
